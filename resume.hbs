@@ -10,19 +10,41 @@
     </style>
   </head>
   <body>
-    <div id="resume">
-      {{> basics }}
-      {{> skills }}
-      {{> work }}
-      {{> projects }}
-      {{> volunteer }}
-      {{> education }}
-      {{> awards }}
-      {{> certificates }}
-      {{> publications }}
-      {{> languages }}
-      {{> interests }}
-      {{> references }}
+    <div style="display:flex; align-items:flex-start;">
+      <div class="lang-switch-wrap">
+        <div class="lang-switch" id="lang-switch">
+          <input type="radio" id="lang-en" name="lang" {{#resume}}{{isChecked "en" lang}}{{/resume}}>
+          <label for="lang-en">EN</label>
+          <input type="radio" id="lang-ru" name="lang"{{#resume}}{{isChecked "ru" lang}}{{/resume}}>
+          <label for="lang-ru">RU</label>
+        </div>
+      </div>
+      <script>                                                                                                                                                                                                       
+        (function () {                                                                                                                                                                                               
+          var isRU = /(^|\/)ru\.html(\?|#|$)/i.test(location.pathname);                                                                                                                                              
+          var en = document.getElementById('lang-en');                                                                                                                                                               
+          var ru = document.getElementById('lang-ru');                                                                                                                                                               
+          (isRU ? ru : en).checked = true;                                                                                                                                                                           
+          en.addEventListener('change', function () { if (this.checked) location.href = 'en.html'; });                                                                                                               
+          ru.addEventListener('change', function () { if (this.checked) location.href = 'ru.html'; });                                                                                                               
+        })();                                                                                                                                                                                                        
+      </script>
+      <div style="flex:1;">
+        <div id="resume">
+          {{> basics }}
+          {{> skills }}
+          {{> work }}
+          {{> projects }}
+          {{> volunteer }}
+          {{> education }}
+          {{> awards }}
+          {{> certificates }}
+          {{> publications }}
+          {{> languages }}
+          {{> interests }}
+          {{> references }}
+        </div>
+      </div>
     </div>
   </body>
 </html>

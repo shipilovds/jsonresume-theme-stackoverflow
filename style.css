@@ -587,6 +587,33 @@ section .location {
   opacity: 1 !important;
 }
 
+
+/********************************
+*    Language switch (EN/RU)    *
+********************************/
+.lang-switch-wrap { margin: 1em; position: fixed; }
+.lang-switch {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 0;
+  overflow: hidden;
+  font-weight: 600;
+}
+.lang-switch input { display: none; }
+.lang-switch label {
+  padding: .35rem .7rem;
+  text-align: center;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #4b5563;
+  user-select: none;
+}
+#lang-en:checked + label,
+#lang-ru:checked + label {
+  background: #3e6d8e;
+  color: #fff;
+}
+
 /****************
 *		TABLET
 ****************/
