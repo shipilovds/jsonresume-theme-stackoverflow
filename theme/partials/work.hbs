@@ -44,7 +44,20 @@
         {{#if summary}}
         <div class="summary">{{paragraphSplit summary}}</div>
         {{/if}}
+        {{#if responsibilities.length}}
+        <header class="clear">
+          <h4 class="section-subtitle">{{#resume}}{{i18n "responsibilities" lang}}{{/resume}}</h4>
+        </header>
+        <ul class="highlights">
+          {{#each responsibilities}}
+          <li>{{paragraphSplit .}}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
         {{#if highlights.length}}
+        <header class="clear">
+          <h4 class="section-subtitle">{{#resume}}{{i18n "highlights" lang}}{{/resume}}</h4>
+        </header>
         <ul class="highlights">
           {{#each highlights}}
           <li>{{paragraphSplit .}}</li>
