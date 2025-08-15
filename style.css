@@ -91,6 +91,8 @@ video {
   vertical-align: baseline;
 }
 
+summary { margin: 10px 0; }
+
 article,
 aside,
 details,
@@ -275,7 +277,7 @@ section .location {
   display: inline-block;
   background: #fff;
   padding: 0 1em 0.3em 0;
-  color: #ff6d1f;
+  color: #0c65a5;
   text-transform: uppercase;
   font-weight: 600;
   border: none;
@@ -344,6 +346,11 @@ section .location {
 .language,
 .name {
   font-weight: 600;
+}
+
+
+.position {
+  font-size: 15px;
 }
 
 .company::before,
@@ -497,6 +504,12 @@ section .location {
   color: #2291c3;
 }
 
+#work .item {
+  border-left: 2px dotted #c9c9c9;
+  padding-left: 15px;
+  margin-left: 9px;
+}
+
 #languages .item,
 #skills .item,
 #interests .item {
@@ -570,6 +583,10 @@ section .location {
 
 .section > section > section {
   margin-bottom: 1rem;
+}
+
+.spacer {
+  height: 15px;
 }
 
 /******************

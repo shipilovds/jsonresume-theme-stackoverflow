@@ -13,7 +13,12 @@
       <header class="clear">
         {{> date startDate=startDate endDate=endDate }}
         {{#if name}}
-        <div class="position">{{name}}</div>
+        <div class="studyType">{{name}}</div>
+        {{/if}}
+        {{#if position}}
+        <div class="institution">
+          {{position}}
+        </div>
         {{/if}}
       </header>
       {{/if}}
