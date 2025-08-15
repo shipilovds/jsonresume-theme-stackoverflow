@@ -10,6 +10,7 @@ const { paragraphSplit } = require(join(HELPERS, 'paragraph-split.js'));
 const { toLowerCase } = require(join(HELPERS, 'to-lower-case.js'));
 const { spaceToDash } = require(join(HELPERS, 'space-to-dash.js'));
 const { isChecked } = require(join(HELPERS, 'radio-is-checked.js'));
+const { i18n } = require(join(HELPERS, 'i18n.js'));
 
 const { MY, Y, DMY } = dateHelpers;
 
@@ -21,6 +22,7 @@ Handlebars.registerHelper('paragraphSplit', paragraphSplit);
 Handlebars.registerHelper('toLowerCase', toLowerCase);
 Handlebars.registerHelper('spaceToDash', spaceToDash);
 Handlebars.registerHelper('isChecked', isChecked);
+Handlebars.registerHelper('i18n', i18n);
 
 function render(resume) {
   const css = readFileSync(`${__dirname}/style.css`, 'utf-8');
