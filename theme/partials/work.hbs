@@ -6,12 +6,12 @@
 
   <section id="work">
     {{#each resume.work}}
-    <section class="work-item">
-        {{#if summary}}
-        <label for="work-item-{{@index}}"></label>
-        {{/if}}
+    <details class="work-details">
+      {{#if summary}}
+      <label for="work-item-{{@index}}"></label>
+      {{/if}}
+      <summary>
         <header class="clear">
-          {{> date startDate=startDate endDate=endDate }}
           {{#if position}}
           <div class="position">{{position}}</div>
           {{/if}}
@@ -22,49 +22,54 @@
           {{else}}
             <div class="company">{{name}}</div>
           {{/if}}
+          {{> date startDate=startDate endDate=endDate }}
         </header>
-      {{#if location}}
-      <div class="item" id="work-item">
-        <span class="location">
-          <span class="fa-solid fa-location-dot"></span>
-          {{location}}
-        </span>
-        {{/if}}
-        {{#if url}}
-        <span class="url">
-          <span class="fa-solid fa-up-right-from-square"></span>
-          <a target="_blank" href="{{url}}">{{url}}</a>
-        </span> {{/if}}
-        {{#if keywords.length}}
-        <ul class="keywords">
-          {{#each keywords}}
-          <li>{{.}}</li>
-          {{/each}}
-        </ul>
-        {{/if}}
-        {{#if summary}}
-        <div class="spacer"></div>
-        <div class="summary">{{paragraphSplit summary}}</div>
-        <div class="spacer"></div>
-        {{/if}}
-        {{#if responsibilities.length}}
-        <div class="title">{{i18n "responsibilities" ../resume.lang}}</div>
-        <ul class="highlights">
-          {{#each responsibilities}}
-          <li>{{paragraphSplit .}}</li>
-          {{/each}}
-        </ul>
-        {{/if}}
-        {{#if highlights.length}}
-        <div class="title">{{i18n "highlights" ../resume.lang}}</div>
-        <ul class="highlights">
-          {{#each highlights}}
-          <li>{{paragraphSplit .}}</li>
-          {{/each}}
-        </ul>
-        {{/if}}
-      </div>
-    </section>
+      </summary>
+      <section class="work-item">
+        <div class="item" id="work-item">
+          {{#if location}}
+          <span class="location">
+            <span class="fa-solid fa-location-dot"></span>
+            {{location}}
+          </span>
+          {{/if}}
+          {{#if url}}
+          <span class="url">
+            <span class="fa-solid fa-up-right-from-square"></span>
+            <a target="_blank" href="{{url}}">{{url}}</a>
+          </span>
+          {{/if}}
+          {{#if keywords.length}}
+          <ul class="keywords">
+            {{#each keywords}}
+            <li>{{.}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+          {{#if summary}}
+          <div class="spacer"></div>
+          <div class="summary">{{paragraphSplit summary}}</div>
+          <div class="spacer"></div>
+          {{/if}}
+          {{#if responsibilities.length}}
+          <div class="title">{{i18n "responsibilities" ../resume.lang}}</div>
+          <ul class="highlights">
+            {{#each responsibilities}}
+            <li>{{paragraphSplit .}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+          {{#if highlights.length}}
+          <div class="title">{{i18n "highlights" ../resume.lang}}</div>
+          <ul class="highlights">
+            {{#each highlights}}
+            <li>{{paragraphSplit .}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </div>
+      </section>
+    </details>
     {{/each}}
   </section>
 </section>
