@@ -698,8 +698,13 @@ section .location {
   }
 
   body {
-    padding-top: 60px; /* match bar height */
+    padding: 60px 15px;
   }
+
+  #resume {
+    padding: 0;
+}
+
 }
 
 /****************

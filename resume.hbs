@@ -1,9 +1,44 @@
 <!doctype html>
+<html lang="en">
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
+    {{#resume}}{{#if seo.enabled}}
+    <!-- Primary Meta Tags -->
+    <title>{{basics.name}} - {{seo.title_prefix}}</title>
+    <meta name="description" content="{{seo.description}}">
+    <meta name="keywords" content="{{seo.keywords}}">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://{{seo.domain}}/{{lang}}.html">
+    <!-- Hreflang for Multilingual -->
+    <link rel="alternate" hreflang="en" href="https://{{seo.domain}}/en.html">
+    <link rel="alternate" hreflang="ru" href="https://{{seo.domain}}/ru.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{basics.name}} - {{seo.title_prefix}}">
+    <meta property="og:description" content="{{seo.meta_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://{{seo.domain}}/{{lang}}.html">
+    <meta property="og:image" content="{{basics.image}}">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{basics.name}}",
+      "jobTitle": "{{basics.label}}",
+      "url": "https://{{seo.domain}}/{{lang}}.html",
+      "image": "{{basics.image}}",
+      "sameAs": [
+		    {{#if basics.profiles.length}}
+		  	{{#each basics.profiles}}
+        "{{url}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+        {{/if}}
+      ]
+    }
+    {{/if}}{{/resume}}
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       {{{css}}}
@@ -19,15 +54,15 @@
           <label for="lang-ru">RU</label>
         </div>
       </div>
-      <script>                                                                                                                                                                                                       
-        (function () {                                                                                                                                                                                               
-          var isRU = /(^|\/)ru\.html(\?|#|$)/i.test(location.pathname);                                                                                                                                              
-          var en = document.getElementById('lang-en');                                                                                                                                                               
-          var ru = document.getElementById('lang-ru');                                                                                                                                                               
-          (isRU ? ru : en).checked = true;                                                                                                                                                                           
-          en.addEventListener('change', function () { if (this.checked) location.href = 'en.html'; });                                                                                                               
-          ru.addEventListener('change', function () { if (this.checked) location.href = 'ru.html'; });                                                                                                               
-        })();                                                                                                                                                                                                        
+      <script>
+        (function () {
+          var isRU = /(^|\/)ru\.html(\?|#|$)/i.test(location.pathname);
+          var en = document.getElementById('lang-en');
+          var ru = document.getElementById('lang-ru');
+          (isRU ? ru : en).checked = true;
+          en.addEventListener('change', function () { if (this.checked) location.href = 'en.html'; });
+          ru.addEventListener('change', function () { if (this.checked) location.href = 'ru.html'; });
+        })();
       </script>
       <div style="flex:1;">
         <div id="resume">
