@@ -612,7 +612,12 @@ section .location {
 /********************************
 *    Language switch (EN/RU)    *
 ********************************/
-.lang-switch-wrap { margin: 1em; position: fixed; }
+.lang-switch-wrap {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 1000;
+}
 .lang-switch {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
@@ -679,6 +684,25 @@ section .location {
 }
 
 /****************
+*		MOBILE
+****************/
+@media (max-width: 900px) {
+  .lang-switch-wrap {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5em 0;
+  }
+
+  body {
+    padding-top: 60px; /* match bar height */
+  }
+}
+
+/****************
 *		LAPTOP
 ****************/
 
@@ -688,7 +712,7 @@ section .location {
   }
   #resume {
     width: 820px;
-    margin: 2rem auto;
+    margin: 0 auto;
   }
   .section > section > header .space-left {
     opacity: 1;
